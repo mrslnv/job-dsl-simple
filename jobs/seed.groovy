@@ -9,7 +9,12 @@ job('seed') {
         scm 'H/5 * * * *'
     }
     steps {
-        gradle 'clean test'
+        gradle {
+            gradleName("local")
+            tasks("clean")
+            tasks("test")
+            useWrapper(false)
+        }
         dsl {
             external 'jobs/**/*Jobs.groovy'
             additionalClasspath 'src/main/groovy'

@@ -72,7 +72,6 @@ test {
 }
 
 task rest(dependsOn: 'classes', type: JavaExec) {
-    logging.setLevel(LogLevel.DEBUG)
     main = 'com.dslexample.rest.RestApiScriptRunner'
     classpath = sourceSets.main.runtimeClasspath
     systemProperties System.getProperties()
