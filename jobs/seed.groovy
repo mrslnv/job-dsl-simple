@@ -13,6 +13,8 @@ job('seed') {
         dsl {
             external 'jobs/**/*Jobs.groovy'
             additionalClasspath 'src/main/groovy'
+            removeAction("DELETE")
+            removeViewAction("DELETE")
         }
     }
     publishers {
