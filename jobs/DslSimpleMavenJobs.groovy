@@ -7,8 +7,6 @@ job("dsl-simple-maven") {
         }
 
     }
-
-
     steps {
         maven {
             goals('clean')
