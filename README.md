@@ -18,14 +18,10 @@ An example [Job DSL](https://github.com/jenkinsci/job-dsl-plugin) project that u
 
 # Script Examples
 
-* [Example 1](jobs/example1Jobs.groovy) - shows basic folder/job creation
-* [Example 2](jobs/example2Jobs.groovy) - shows how to create a set of jobs for each github branch, each in its own folder
-* [Example 3](jobs/example3Jobs.groovy) - shows how to use the configure block
-* [Example 4](jobs/example4Jobs.groovy) - shows a way to reuse job definitions for jobs that differ only with a few properties
-* [Example 5](jobs/example5Jobs.groovy) - shows how to pull out common components into static methods
-* [Example 6](jobs/example6Jobs.groovy) - shows how to include script resources from the workspace
-* [Example 7](jobs/example7Jobs.groovy) - shows how to create jobs using builders
-* [Example 8](jobs/example8Jobs.groovy) - shows how to use DSL extensions provided by other plugins
+* [Example 1](jobs/DslHelloWorldJobs.groovy) - the simplest example: 1 job saying hello
+* [Example 2](jobs/DslSimpleMavenJobs.groovy) - very simple Maven job
+* [Example 3](jobs/DslSimpleMavenForBranchJobs.groovy) - the simple Maven job but for each branch
+* [Example 4](jobs/DslSimpleMavenByBuilderJobs.groovy) - the simple Maven job for each branch but by created by builder class
 
 ## Testing
 
@@ -57,6 +53,8 @@ Or manually create a job with the same structure:
 A gradle task is configured that can be used to create/update jobs via the Jenkins REST API, if desired. Normally
 a seed job is used to keep jobs in sync with the DSL, but this runner might be useful if you'd rather process the
 DSL outside of the Jenkins environment or if you want to create the seed job from a DSL script.
+
+*This is for debug only* - you MUST disable security in Jenkins (CSRF protection) which is on by default in Jenkins 2+
 
 ```./gradlew rest -Dpattern=<pattern> -DbaseUrl=<baseUrl> [-Dusername=<username>] [-Dpassword=<password>]```
 
